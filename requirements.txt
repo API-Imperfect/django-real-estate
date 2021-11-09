@@ -14,3 +14,7 @@ isort==5.9.3
 djoser==2.1.0
 djangorestframework-simplejwt==4.8.0
 PyJWT==2.1.0
+pytest-django==4.4.0
+pytest-factoryboy==2.1.0
+Faker==8.9.1
+pytest-cov==2.12.1
