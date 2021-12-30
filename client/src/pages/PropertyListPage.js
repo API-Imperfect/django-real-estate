@@ -1,42 +1,42 @@
-import { Alert, Col, Row, Spin } from 'antd'
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchPropertyList } from '../store/property/propertyThunks'
+import { Alert, Col, Row, Spin } from "antd";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPropertyList } from "../store/property/propertyThunks";
 
 function PropertyListPage() {
-  const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
-  const propertiesList = useSelector((state) => state.propertiesList)
+	const propertiesList = useSelector((state) => state.propertiesList);
 
-  const { loading, error, properties } = propertiesList
+	const { loading, error, properties } = propertiesList;
 
-  useEffect(() => {
-    dispatch(fetchPropertyList())
-  }, [dispatch])
-  return (
-    <>
-      {loading ? (
-        <div className='spinner'>
-          <Spin size='large' />
-        </div>
-      ) : error ? (
-        <Alert type='error' message={error} showIcon className='alert-margin--top' />
-      ) : (
-        <>
-          <Row>
-            <Col span={24}>
-              <h2 className='margin--top'>Our Catalog of Properties</h2>
-            </Col>
-            {properties.map((property) => (
-              <Col key={property.id} sm={12} md={6} lg={4} xs={3}>
-                <p>{property.title}</p>
-              </Col>
-            ))}
-          </Row>
-        </>
-      )}
-    </>
-  )
+	useEffect(() => {
+		dispatch(fetchPropertyList());
+	}, [dispatch]);
+	return (
+		<>
+			{loading ? (
+				<div className="spinner">
+					<Spin size="large" />
+				</div>
+			) : error ? (
+				<Alert type="error" message={error} showIcon className="alert-margin--top" />
+			) : (
+				<>
+					<Row>
+						<Col span={24}>
+							<h2 className="margin--top">Our Catalog of Properties</h2>
+						</Col>
+						{properties.map((property) => (
+							<Col key={property.id} sm={12} md={6} lg={4} xs={3}>
+								<p>{property.title}</p>
+							</Col>
+						))}
+					</Row>
+				</>
+			)}
+		</>
+	);
 }
 
-export default PropertyListPage
+export default PropertyListPage;
