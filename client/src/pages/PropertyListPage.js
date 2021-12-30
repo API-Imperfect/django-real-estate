@@ -1,7 +1,7 @@
 import { Alert, Col, Row, Spin } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPropertyList } from "../store/property/propertyThunks";
+import { fetchPropertyList } from "../store/property/propertiesThunks";
 
 function PropertyListPage() {
 	const dispatch = useDispatch();

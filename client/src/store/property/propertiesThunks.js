@@ -4,7 +4,7 @@ import {
 	propertyListRequest,
 	propertyListSuccess,
 	propertyListFail,
-} from "./propertySlice";
+} from "./propertiesSlice";
 
 export const fetchPropertyList = () => async (dispatch) => {
 	try {
