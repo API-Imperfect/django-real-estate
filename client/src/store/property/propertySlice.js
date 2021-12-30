@@ -23,6 +23,7 @@ const propertiesSlice = createSlice({
 	},
 });
 
-export const { propertyListRequest, propertyListSuccess, propertyListFail } = propertiesSlice.actions;
+export const { propertyListRequest, propertyListSuccess, propertyListFail } =
+	propertiesSlice.actions;
 
 export default propertiesSlice.reducer;

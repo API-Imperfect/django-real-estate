@@ -1,6 +1,10 @@
 import axios from "axios";
 
-import { propertyListRequest, propertyListSuccess, propertyListFail } from "./propertySlice";
+import {
+	propertyListRequest,
+	propertyListSuccess,
+	propertyListFail,
+} from "./propertySlice";
 
 export const fetchPropertyList = () => async (dispatch) => {
 	try {
@@ -10,7 +14,9 @@ export const fetchPropertyList = () => async (dispatch) => {
 		dispatch(propertyListSuccess(data));
 	} catch (error) {
 		const errorMessage =
-			error.response && error.response.data.message ? error.response.data.message : error.message;
+			error.response && error.response.data.message
+				? error.response.data.message
+				: error.message;
 		dispatch(propertyListFail(errorMessage));
 	}
 };

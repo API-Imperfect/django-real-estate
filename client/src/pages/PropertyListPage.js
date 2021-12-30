@@ -20,12 +20,19 @@ function PropertyListPage() {
 					<Spin size="large" />
 				</div>
 			) : error ? (
-				<Alert type="error" message={error} showIcon className="alert-margin--top" />
+				<Alert
+					type="error"
+					message={error}
+					showIcon
+					className="alert-margin--top"
+				/>
 			) : (
 				<>
 					<Row>
 						<Col span={24}>
-							<h2 className="margin--top">Our Catalog of Properties</h2>
+							<h2 className="margin--top">
+								Our Catalog of Properties
+							</h2>
 						</Col>
 						{properties.map((property) => (
 							<Col key={property.id} sm={12} md={6} lg={4} xs={3}>
