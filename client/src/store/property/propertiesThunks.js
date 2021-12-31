@@ -10,7 +10,6 @@ export const fetchPropertyList = () => async (dispatch) => {
 	try {
 		dispatch(propertyListRequest());
 		const { data } = await axios.get("/api/v1/properties/all/");
-
 		dispatch(propertyListSuccess(data));
 	} catch (error) {
 		const errorMessage =

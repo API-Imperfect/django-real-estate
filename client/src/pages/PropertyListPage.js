@@ -2,11 +2,12 @@ import { Alert, Col, Row, Spin } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPropertyList } from "../store/property/propertiesThunks";
+import { getPropertyList } from "../store/property/propertiesSelectors";
 
 function PropertyListPage() {
 	const dispatch = useDispatch();
 
-	const propertiesList = useSelector((state) => state.propertiesList);
+	const propertiesList = useSelector(getPropertyList);
 
 	const { loading, error, properties } = propertiesList;
 
