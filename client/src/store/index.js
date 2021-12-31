@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import propertiesListReducer from "./property/propertiesSlice";
+import propertyReducer from "./property/propertiesSlice";
 
 const rootReducer = {
-	propertiesList: propertiesListReducer,
+	property: propertyReducer,
 };
 
 const store = configureStore({ reducer: rootReducer });

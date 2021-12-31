@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { map, zipObject } from "lodash";
 
 const initialState = {
-	properties: [],
+	properties: {},
 	loading: false,
 	error: undefined, // Optionally could be set to null or empty string. I find that undefined works best when using TypeScript
 };
@@ -10,23 +11,26 @@ const propertiesSlice = createSlice({
 	name: "properties",
 	initialState,
 	reducers: {
-		propertyListRequest: (state, action) => {
+		propertiesRequest: (state, action) => {
 			state.loading = true;
 			state.error = undefined;
 		},
-		propertyListSuccess: (state, action) => {
+		propertiesSuccess: (state, action) => {
 			state.loading = false;
 			state.error = undefined;
-			state.properties = action.payload.results;
+			state.properties = zipObject(
+				map(action.payload.results, "id"),
+				action.payload.results,
+			);
 		},
-		propertyListFail: (state, action) => {
+		propertiesFail: (state, action) => {
 			state.loading = false;
 			state.error = action.payload;
 		},
 	},
 });
 
-export const { propertyListRequest, propertyListSuccess, propertyListFail } =
+export const { propertiesRequest, propertiesSuccess, propertiesFail } =
 	propertiesSlice.actions;
 
 export default propertiesSlice.reducer;

@@ -1,15 +1,31 @@
-// Will use createSelector in next PR suggestion
 import { createSelector } from "@reduxjs/toolkit";
+import { values } from "lodash";
 
 // Naming convention for non-memoized selectors - getSLICE_NAME
 
 /**
- * Returns a property object that includes property list, loading and error state.
- *
- * NOTE: I would normally just refer to this slice as "property"
- *       (instead of "propertyList") mimicing the model name in the API.
- *       and matching property directory in the store
+ * Non-memoized selector returns property slice
+ * which includes properties dictionary, loading and error state.
  */
-export const getPropertyList = (state) => state.propertiesList;
+export const getPropertySlice = (state) => state.property;
 
 // Memoized selectors are named with the following convention: selectSLICE_NAME
+
+/**
+ * Memoized selector returns property slice. Converts properties to list.
+ */
+export const selectPropertySlice = createSelector(
+	getPropertySlice,
+	(property) => {
+		return { ...property, properties: values(property.properties) };
+	},
+);
+
+/**
+ * Memoized selector retrieves a property by id or returns undefined if not found.
+ */
+export const selectPropertyById = (id) =>
+	createSelector(getPropertySlice, (property) =>
+		// Guard against id not being defined on initial render
+		id ? property.properties[id] : undefined,
+	);

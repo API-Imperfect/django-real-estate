@@ -1,21 +1,24 @@
 import axios from "axios";
 
 import {
-	propertyListRequest,
-	propertyListSuccess,
-	propertyListFail,
+	propertiesRequest,
+	propertiesSuccess,
+	propertiesFail,
 } from "./propertiesSlice";
 
-export const fetchPropertyList = () => async (dispatch) => {
+/**
+ * Optional renaming of the thunk action creator.
+ */
+export const fetchProperties = () => async (dispatch) => {
 	try {
-		dispatch(propertyListRequest());
+		dispatch(propertiesRequest());
 		const { data } = await axios.get("/api/v1/properties/all/");
-		dispatch(propertyListSuccess(data));
+		dispatch(propertiesSuccess(data));
 	} catch (error) {
 		const errorMessage =
 			error.response && error.response.data.message
 				? error.response.data.message
 				: error.message;
-		dispatch(propertyListFail(errorMessage));
+		dispatch(propertiesFail(errorMessage));
 	}
 };
