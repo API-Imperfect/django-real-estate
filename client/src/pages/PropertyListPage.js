@@ -1,7 +1,9 @@
-import { Alert, Col, Row, Spin } from "antd";
+import { Col, Row } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPropertyList } from "../store/property/propertiesThunks";
+import ReusableLoader from "../components/common/ReusableLoader";
+import ReusableErrorAlert from "../components/common/ReusableErrorAlert";
 
 function PropertyListPage() {
 	const dispatch = useDispatch();
@@ -15,33 +17,18 @@ function PropertyListPage() {
 	}, [dispatch]);
 	return (
 		<>
-			{loading ? (
-				<div className="spinner">
-					<Spin size="large" />
-				</div>
-			) : error ? (
-				<Alert
-					type="error"
-					message={error}
-					showIcon
-					className="alert-margin--top"
-				/>
-			) : (
-				<>
-					<Row>
-						<Col span={24}>
-							<h2 className="margin--top">
-								Our Catalog of Properties
-							</h2>
-						</Col>
-						{properties.map((property) => (
-							<Col key={property.id} sm={12} md={6} lg={4} xs={3}>
-								<p>{property.title}</p>
-							</Col>
-						))}
-					</Row>
-				</>
-			)}
+			<ReusableLoader loading={loading} />
+			<ReusableErrorAlert error={error} />
+			<Row>
+				<Col span={24}>
+					<h2 className="margin--top">Our Catalog of Properties</h2>
+				</Col>
+				{properties.map((property) => (
+					<Col key={property.id} sm={12} md={6} lg={4} xs={3}>
+						<p>{property.title}</p>
+					</Col>
+				))}
+			</Row>
 		</>
 	);
 }
