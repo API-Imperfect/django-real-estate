@@ -9,7 +9,7 @@ from .models import Rating
 
 User = get_user_model()
 
-
+# create agent review
 @api_view(["POST"])
 @permission_classes([permissions.IsAuthenticated])
 def create_agent_review(request, profile_id):
