@@ -23,7 +23,7 @@ services:
     client:
         build:
             context: ./client
-            dockerfile: Dockerfile.dev
+            dockerfile: ./docker/local/Dockerfile
         restart: on-failure
         volumes:
             - ./client:/app
