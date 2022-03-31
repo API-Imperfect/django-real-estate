@@ -1,16 +1,47 @@
 main {
 	min-height: 94vh;
+	background-color: #0000001c;
 }
 /* margin top */
 .mg-top {
 	margin-top: 80px;
 }
+
+.hr-text {
+	background: linear-gradient(to right, transparent, #000000, transparent);
+	line-height: 24px;
+}
+.property-price {
+	font-size: 23px;
+	z-index: 20;
+	font-weight: 700;
+	color: white;
+	position: absolute;
+	margin-top: 133px;
+	background: #0000007a;
+	border-radius: 15px;
+}
+
 /* footer */
-.footer {
-	text-align: center;
+footer {
+	background-color: #0000001c;
 }
 .nav-icon {
 	margin-top: -8px !important;
+}
+.notfound {
+	margin-top: 20rem;
+}
+h1.notfound {
+	font-size: 7rem;
+}
+.broken-heart {
+	font-size: 7rem;
+	color: crimson;
+}
+.sad-tear {
+	font-size: 7rem;
+	color: rgb(158, 158, 13);
 }
 /* homepage background image */
 .main-bg-image {
