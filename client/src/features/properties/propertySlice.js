@@ -43,7 +43,7 @@ export const propertySlice = createSlice({
 			.addCase(getProperties.fulfilled, (state, action) => {
 				state.isLoading = false;
 				state.isSuccess = true;
-				state.properties = action.payload;
+				state.properties = action.payload.results;
 			})
 			.addCase(getProperties.rejected, (state, action) => {
 				state.isLoading = false;
