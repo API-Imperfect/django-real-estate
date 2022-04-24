@@ -6,7 +6,12 @@ main {
 .mg-top {
 	margin-top: 80px;
 }
-
+a {
+	text-decoration: none;
+}
+.large-btn {
+	font-size: 3.25rem;
+}
 .hr-text {
 	background: linear-gradient(to right, transparent, #000000, transparent);
 	line-height: 24px;
