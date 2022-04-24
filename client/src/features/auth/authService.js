@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const REGISTER_URL = "/api/v1/users/";
+const REGISTER_URL = "/api/v1/auth/users/";
 const LOGIN_URL = "/api/v1/auth/jwt/create/";
 const ACTIVATE_URL = "/api/v1/auth/users/activation/";
 
